@@ -4,12 +4,23 @@ This is an ASP.NET Core MVC application for the Haryana Space Applications Centr
 
 ## Prerequisites
 
-- .NET 9.0 SDK
-- Docker (optional, for containerization)
+- [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
+- [Docker](https://docs.docker.com/get-docker/) (optional, for containerization)
 
-## Running Locally
+## Getting Started
 
-To run the application locally:
+### 1. Clone the Repository
+
+If you haven't already, clone the repository to your local machine:
+
+```bash
+git clone <repository-url>
+cd HarsacWebsite
+```
+
+## Running Locally (Windows/Linux/macOS)
+
+To run the application directly using the .NET CLI:
 
 ```bash
 dotnet run
@@ -17,7 +28,7 @@ dotnet run
 
 The application will be available at `http://localhost:5270`.
 
-## Running with Docker
+## Running with Docker (Recommended for Linux)
 
 To run the application using Docker, ensure Docker is installed and running on your machine.
 
@@ -52,3 +63,27 @@ To remove the container:
 ```bash
 docker rm harsac-app
 ```
+
+## Linux Quick Start Guide
+
+If you are on a fresh Linux machine (e.g., Ubuntu), follow these steps:
+
+1.  **Install Docker:**
+    ```bash
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh get-docker.sh
+    sudo usermod -aG docker $USER
+    # Log out and back in for group changes to take effect
+    ```
+
+2.  **Get the Code:**
+    ```bash
+    git clone <your-repo-url>
+    cd HarsacWebsite
+    ```
+
+3.  **Run with Docker:**
+    ```bash
+    docker build -t harsac-website .
+    docker run -d -p 8080:8080 --name harsac-app harsac-website
+    ```
